@@ -18,6 +18,7 @@ public class ApplicationManager {
   private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   private String browser;
+  private ContactHelper contactHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -38,6 +39,7 @@ public class ApplicationManager {
     groupHelper = new GroupHelper(driver);
     navigationHelper = new NavigationHelper(driver);
     sessionHelper = new SessionHelper(driver);
+    contactHelper = new ContactHelper(driver);
     sessionHelper.login("admin", "secret");
   }
 
@@ -85,5 +87,9 @@ public class ApplicationManager {
 
   public SessionHelper getSessionHelper() {
     return sessionHelper;
+  }
+
+  public ContactHelper getContactHelper() {
+    return contactHelper;
   }
 }
